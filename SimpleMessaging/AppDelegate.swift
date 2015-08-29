@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MMX
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let frame = UIScreen.mainScreen().bounds;
+        self.window = UIWindow(frame: frame)
+
+        
+        if let user = MMXUser.currentUser(){
+            self.window?.rootViewController = ViewController()
+            self.window?.makeKeyAndVisible()
+        }else{
+            self.window?.rootViewController = LoginViewController()
+            self.window?.makeKeyAndVisible()
+        }
+        
+        
+        UILabel.appearance().font = UIFont(name: "AvenirNext-Medium", size: 18)
+        
         return true
     }
 

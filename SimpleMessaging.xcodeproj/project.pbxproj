@@ -7,12 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C712C227980665B4E8B35EC /* Pods_SimpleMessagingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F1320D377290AD07976A6F /* Pods_SimpleMessagingTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6301987934DFF842FF085B37 /* Pods_SimpleMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6EB719CD1CD29A234BC3C09 /* Pods_SimpleMessaging.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FA04D2B61B9122F50048339D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2B51B9122F50048339D /* AppDelegate.swift */; };
 		FA04D2B81B9122F50048339D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2B71B9122F50048339D /* ViewController.swift */; };
-		FA04D2BB1B9122F50048339D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2B91B9122F50048339D /* Main.storyboard */; };
 		FA04D2BD1B9122F50048339D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2BC1B9122F50048339D /* Images.xcassets */; };
 		FA04D2C01B9122F50048339D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2BE1B9122F50048339D /* LaunchScreen.xib */; };
 		FA04D2CC1B9122F50048339D /* SimpleMessagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2CB1B9122F50048339D /* SimpleMessagingTests.swift */; };
+		FA04D2D91B9125880048339D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2D81B9125880048339D /* ViewController.m */; };
+		FA04D2DA1B9125880048339D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2D81B9125880048339D /* ViewController.m */; };
+		FA04D2DD1B92255F0048339D /* UIColor+SimpleMessaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2DC1B92255F0048339D /* UIColor+SimpleMessaging.swift */; };
+		FA04D2DF1B9227C30048339D /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2DE1B9227C30048339D /* BackgroundView.swift */; };
+		FA04D2E11B9234EB0048339D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2E01B9234EB0048339D /* LoginViewController.swift */; };
+		FA04D2E21B9234F00048339D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2B71B9122F50048339D /* ViewController.swift */; };
+		FA04D2E31B9234F00048339D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2E01B9234EB0048339D /* LoginViewController.swift */; };
+		FA04D2E51B9235290048339D /* SMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2E41B9235290048339D /* SMViewController.swift */; };
+		FA04D2E61B9235330048339D /* SMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2E41B9235290048339D /* SMViewController.swift */; };
+		FA04D2EA1B92366C0048339D /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2DE1B9227C30048339D /* BackgroundView.swift */; };
+		FA04D2EB1B9236780048339D /* UIColor+SimpleMessaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2DC1B92255F0048339D /* UIColor+SimpleMessaging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +38,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45F1320D377290AD07976A6F /* Pods_SimpleMessagingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMessagingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46D34BAD8B3E6DC173EDF53F /* Pods-SimpleMessaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMessaging.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleMessaging/Pods-SimpleMessaging.debug.xcconfig"; sourceTree = "<group>"; };
+		556B10E7A99985DED8EF4B9A /* Pods-SimpleMessagingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMessagingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleMessagingTests/Pods-SimpleMessagingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E7351727C30BFE0FA48AD75 /* Pods-SimpleMessagingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMessagingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleMessagingTests/Pods-SimpleMessagingTests.release.xcconfig"; sourceTree = "<group>"; };
+		A44D7DD22F3F1E2BBF9FCE30 /* Pods-SimpleMessaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMessaging.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleMessaging/Pods-SimpleMessaging.release.xcconfig"; sourceTree = "<group>"; };
+		E6EB719CD1CD29A234BC3C09 /* Pods_SimpleMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA04D2B01B9122F50048339D /* SimpleMessaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMessaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA04D2B41B9122F50048339D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA04D2B51B9122F50048339D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA04D2B71B9122F50048339D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA04D2BA1B9122F50048339D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA04D2BC1B9122F50048339D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA04D2BF1B9122F50048339D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FA04D2C51B9122F50048339D /* SimpleMessagingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleMessagingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA04D2CA1B9122F50048339D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA04D2CB1B9122F50048339D /* SimpleMessagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessagingTests.swift; sourceTree = "<group>"; };
+		FA04D2D51B9125870048339D /* SimpleMessaging-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleMessaging-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA04D2D61B9125880048339D /* SimpleMessagingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleMessagingTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA04D2D71B9125880048339D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FA04D2D81B9125880048339D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FA04D2DC1B92255F0048339D /* UIColor+SimpleMessaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SimpleMessaging.swift"; sourceTree = "<group>"; };
+		FA04D2DE1B9227C30048339D /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		FA04D2E01B9234EB0048339D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FA04D2E41B9235290048339D /* SMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6301987934DFF842FF085B37 /* Pods_SimpleMessaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +76,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C712C227980665B4E8B35EC /* Pods_SimpleMessagingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10870E48730DCE02ACAFCE04 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46D34BAD8B3E6DC173EDF53F /* Pods-SimpleMessaging.debug.xcconfig */,
+				A44D7DD22F3F1E2BBF9FCE30 /* Pods-SimpleMessaging.release.xcconfig */,
+				556B10E7A99985DED8EF4B9A /* Pods-SimpleMessagingTests.debug.xcconfig */,
+				7E7351727C30BFE0FA48AD75 /* Pods-SimpleMessagingTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		52B0BD3256B73AD430F3E500 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6EB719CD1CD29A234BC3C09 /* Pods_SimpleMessaging.framework */,
+				45F1320D377290AD07976A6F /* Pods_SimpleMessagingTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA04D2A71B9122F50048339D = {
 			isa = PBXGroup;
 			children = (
+				FA04D2D71B9125880048339D /* ViewController.h */,
+				FA04D2D81B9125880048339D /* ViewController.m */,
 				FA04D2B21B9122F50048339D /* SimpleMessaging */,
 				FA04D2C81B9122F50048339D /* SimpleMessagingTests */,
 				FA04D2B11B9122F50048339D /* Products */,
+				10870E48730DCE02ACAFCE04 /* Pods */,
+				52B0BD3256B73AD430F3E500 /* Frameworks */,
+				FA04D2D51B9125870048339D /* SimpleMessaging-Bridging-Header.h */,
+				FA04D2D61B9125880048339D /* SimpleMessagingTests-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,11 +131,12 @@
 			isa = PBXGroup;
 			children = (
 				FA04D2B51B9122F50048339D /* AppDelegate.swift */,
-				FA04D2B71B9122F50048339D /* ViewController.swift */,
-				FA04D2B91B9122F50048339D /* Main.storyboard */,
+				FA04D2E71B9235530048339D /* Controllers */,
+				FA04D2E91B9235720048339D /* Extensions */,
 				FA04D2BC1B9122F50048339D /* Images.xcassets */,
 				FA04D2BE1B9122F50048339D /* LaunchScreen.xib */,
 				FA04D2B31B9122F50048339D /* Supporting Files */,
+				FA04D2E81B92355A0048339D /* Views */,
 			);
 			path = SimpleMessaging;
 			sourceTree = "<group>";
@@ -112,6 +166,32 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FA04D2E71B9235530048339D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA04D2B71B9122F50048339D /* ViewController.swift */,
+				FA04D2E01B9234EB0048339D /* LoginViewController.swift */,
+				FA04D2E41B9235290048339D /* SMViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FA04D2E81B92355A0048339D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA04D2DE1B9227C30048339D /* BackgroundView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FA04D2E91B9235720048339D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA04D2DC1B92255F0048339D /* UIColor+SimpleMessaging.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA04D2CF1B9122F50048339D /* Build configuration list for PBXNativeTarget "SimpleMessaging" */;
 			buildPhases = (
+				F0C343E1D21E43AAA36E3856 /* Check Pods Manifest.lock */,
 				FA04D2AC1B9122F50048339D /* Sources */,
 				FA04D2AD1B9122F50048339D /* Frameworks */,
 				FA04D2AE1B9122F50048339D /* Resources */,
+				87AC1D5A279C72005301B0DD /* Copy Pods Resources */,
+				498259613477C19294A97780 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA04D2D21B9122F50048339D /* Build configuration list for PBXNativeTarget "SimpleMessagingTests" */;
 			buildPhases = (
+				40B7D61C92BB64FA43D6D229 /* Check Pods Manifest.lock */,
 				FA04D2C11B9122F50048339D /* Sources */,
 				FA04D2C21B9122F50048339D /* Frameworks */,
 				FA04D2C31B9122F50048339D /* Resources */,
+				3C17386DF642A1FF95E77FCE /* Copy Pods Resources */,
+				F0AB47CB2ED95405671F2BFA /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,7 +278,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA04D2BB1B9122F50048339D /* Main.storyboard in Resources */,
 				FA04D2C01B9122F50048339D /* LaunchScreen.xib in Resources */,
 				FA04D2BD1B9122F50048339D /* Images.xcassets in Resources */,
 			);
@@ -207,13 +292,111 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C17386DF642A1FF95E77FCE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleMessagingTests/Pods-SimpleMessagingTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		40B7D61C92BB64FA43D6D229 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		498259613477C19294A97780 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleMessaging/Pods-SimpleMessaging-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87AC1D5A279C72005301B0DD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleMessaging/Pods-SimpleMessaging-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0AB47CB2ED95405671F2BFA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleMessagingTests/Pods-SimpleMessagingTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0C343E1D21E43AAA36E3856 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA04D2AC1B9122F50048339D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA04D2E11B9234EB0048339D /* LoginViewController.swift in Sources */,
+				FA04D2DF1B9227C30048339D /* BackgroundView.swift in Sources */,
+				FA04D2DD1B92255F0048339D /* UIColor+SimpleMessaging.swift in Sources */,
+				FA04D2D91B9125880048339D /* ViewController.m in Sources */,
 				FA04D2B81B9122F50048339D /* ViewController.swift in Sources */,
 				FA04D2B61B9122F50048339D /* AppDelegate.swift in Sources */,
+				FA04D2E51B9235290048339D /* SMViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +404,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA04D2EA1B92366C0048339D /* BackgroundView.swift in Sources */,
+				FA04D2E31B9234F00048339D /* LoginViewController.swift in Sources */,
+				FA04D2E21B9234F00048339D /* ViewController.swift in Sources */,
+				FA04D2E61B9235330048339D /* SMViewController.swift in Sources */,
+				FA04D2EB1B9236780048339D /* UIColor+SimpleMessaging.swift in Sources */,
+				FA04D2DA1B9125880048339D /* ViewController.m in Sources */,
 				FA04D2CC1B9122F50048339D /* SimpleMessagingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,14 +425,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FA04D2B91B9122F50048339D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA04D2BA1B9122F50048339D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA04D2BE1B9122F50048339D /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -340,28 +521,37 @@
 		};
 		FA04D2D01B9122F50048339D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46D34BAD8B3E6DC173EDF53F /* Pods-SimpleMessaging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SimpleMessaging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleMessaging-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		FA04D2D11B9122F50048339D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A44D7DD22F3F1E2BBF9FCE30 /* Pods-SimpleMessaging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SimpleMessaging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleMessaging-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		FA04D2D31B9122F50048339D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 556B10E7A99985DED8EF4B9A /* Pods-SimpleMessagingTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -373,14 +563,18 @@
 				INFOPLIST_FILE = SimpleMessagingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleMessagingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleMessaging.app/SimpleMessaging";
 			};
 			name = Debug;
 		};
 		FA04D2D41B9122F50048339D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E7351727C30BFE0FA48AD75 /* Pods-SimpleMessagingTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -388,6 +582,7 @@
 				INFOPLIST_FILE = SimpleMessagingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleMessagingTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleMessaging.app/SimpleMessaging";
 			};
 			name = Release;
@@ -411,6 +606,7 @@
 				FA04D2D11B9122F50048339D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA04D2D21B9122F50048339D /* Build configuration list for PBXNativeTarget "SimpleMessagingTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +615,7 @@
 				FA04D2D41B9122F50048339D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
