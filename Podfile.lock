@@ -81,10 +81,18 @@ PODS:
   - PromiseKit/UIKit (2.2.1):
     - PromiseKit/CorePromise
   - PureLayout (3.0.0)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
 
 DEPENDENCIES:
   - MMX-PromiseKit
   - PureLayout
+  - ReactiveCocoa
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7cbf214b27f8e7f7574db6a3fd96352ffaed433d
@@ -97,5 +105,6 @@ SPEC CHECKSUMS:
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
   PromiseKit: 9c92257e39abf4b634533d44268592dfc6e4b5c2
   PureLayout: 270dfee2236f697ab1d5e2771c2e5c248495fa0d
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
 COCOAPODS: 0.38.0

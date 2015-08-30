@@ -25,6 +25,10 @@
 		FA04D2E61B9235330048339D /* SMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2E41B9235290048339D /* SMViewController.swift */; };
 		FA04D2EA1B92366C0048339D /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2DE1B9227C30048339D /* BackgroundView.swift */; };
 		FA04D2EB1B9236780048339D /* UIColor+SimpleMessaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2DC1B92255F0048339D /* UIColor+SimpleMessaging.swift */; };
+		FA04D2ED1B9253370048339D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2EC1B9253370048339D /* Constants.swift */; };
+		FA04D2EE1B9253370048339D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2EC1B9253370048339D /* Constants.swift */; };
+		FA04D2F01B926DB40048339D /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2EF1B926DB40048339D /* Configurations.plist */; };
+		FA04D2F11B926DB40048339D /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2EF1B926DB40048339D /* Configurations.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,8 @@
 		FA04D2DE1B9227C30048339D /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		FA04D2E01B9234EB0048339D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA04D2E41B9235290048339D /* SMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMViewController.swift; sourceTree = "<group>"; };
+		FA04D2EC1B9253370048339D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA04D2EF1B926DB40048339D /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 			children = (
 				FA04D2D71B9125880048339D /* ViewController.h */,
 				FA04D2D81B9125880048339D /* ViewController.m */,
+				FA04D2EF1B926DB40048339D /* Configurations.plist */,
 				FA04D2B21B9122F50048339D /* SimpleMessaging */,
 				FA04D2C81B9122F50048339D /* SimpleMessagingTests */,
 				FA04D2B11B9122F50048339D /* Products */,
@@ -131,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				FA04D2B51B9122F50048339D /* AppDelegate.swift */,
+				FA04D2EC1B9253370048339D /* Constants.swift */,
 				FA04D2E71B9235530048339D /* Controllers */,
 				FA04D2E91B9235720048339D /* Extensions */,
 				FA04D2BC1B9122F50048339D /* Images.xcassets */,
@@ -279,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA04D2C01B9122F50048339D /* LaunchScreen.xib in Resources */,
+				FA04D2F01B926DB40048339D /* Configurations.plist in Resources */,
 				FA04D2BD1B9122F50048339D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA04D2F11B926DB40048339D /* Configurations.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +407,7 @@
 				FA04D2B81B9122F50048339D /* ViewController.swift in Sources */,
 				FA04D2B61B9122F50048339D /* AppDelegate.swift in Sources */,
 				FA04D2E51B9235290048339D /* SMViewController.swift in Sources */,
+				FA04D2ED1B9253370048339D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +422,7 @@
 				FA04D2EB1B9236780048339D /* UIColor+SimpleMessaging.swift in Sources */,
 				FA04D2DA1B9125880048339D /* ViewController.m in Sources */,
 				FA04D2CC1B9122F50048339D /* SimpleMessagingTests.swift in Sources */,
+				FA04D2EE1B9253370048339D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

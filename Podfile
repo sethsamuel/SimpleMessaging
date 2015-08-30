@@ -7,6 +7,7 @@ target 'SimpleMessaging' do
 #    pod 'PromiseKit'
     pod 'PureLayout'
     pod 'MMX-PromiseKit'
+    pod 'ReactiveCocoa'
 end
 
 target 'SimpleMessagingTests' do
@@ -14,5 +15,6 @@ target 'SimpleMessagingTests' do
 #    pod 'PromiseKit'
     pod 'PureLayout'
     pod 'MMX-PromiseKit'
+    pod 'ReactiveCocoa'
 end
 

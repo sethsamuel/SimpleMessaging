@@ -25,12 +25,13 @@ class BackgroundView: UIView {
         let context = UIGraphicsGetCurrentContext()
         
         //// Color Declarations
-        var primaryHueComponent: CGFloat = 1,
-        primarySaturationComponent: CGFloat = 1,
-        primaryBrightnessComponent: CGFloat = 1
-        primary.getHue(&primaryHueComponent, saturation: &primarySaturationComponent, brightness: &primaryBrightnessComponent, alpha: nil)
+        var primaryRedComponent: CGFloat = 1,
+        primaryGreenComponent: CGFloat = 1,
+        primaryBlueComponent: CGFloat = 1
+        primary.getRed(&primaryRedComponent, green: &primaryGreenComponent, blue: &primaryBlueComponent, alpha: nil)
         
-        let darkPrimary = UIColor(hue: primaryHueComponent, saturation: primarySaturationComponent, brightness: 0.4, alpha: CGColorGetAlpha(primary.CGColor))
+        let darkPrimary = UIColor(red: (primaryRedComponent * 0.6), green: (primaryGreenComponent * 0.6), blue: (primaryBlueComponent * 0.6), alpha: (CGColorGetAlpha(primary.CGColor) * 0.6 + 0.4))
+        
         
         //// Gradient Declarations
         let background = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), [primary.CGColor, darkPrimary.CGColor], [0, 1])

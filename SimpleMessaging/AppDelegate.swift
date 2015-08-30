@@ -8,6 +8,7 @@
 
 import UIKit
 import MMX
+import ReactiveCocoa
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let frame = UIScreen.mainScreen().bounds;
         self.window = UIWindow(frame: frame)
 
-        
         if let user = MMXUser.currentUser(){
             self.window?.rootViewController = ViewController()
             self.window?.makeKeyAndVisible()
@@ -28,11 +28,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = LoginViewController()
             self.window?.makeKeyAndVisible()
         }
+
         
+        UILabel.appearance().font = Constants.BodyFont
         
-        UILabel.appearance().font = UIFont(name: "AvenirNext-Medium", size: 18)
+        //Initialize MMX
+        MMX.setupWithConfiguration("default")
+        
+        NSNotificationCenter.defaultCenter()
+            .rac_addObserverForName("USER_DID_CHANGE", object: nil)
+            .takeUntil(self.rac_willDeallocSignal())
+            .subscribeNext { (notification) -> Void in
+                self.userDidChange()
+        }
         
         return true
+    }
+    
+
+    private func userDidChange(){
+        if let user = MMXUser.currentUser(){
+            self.window?.rootViewController = ViewController()
+        }else{
+            self.window?.rootViewController = LoginViewController()
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
