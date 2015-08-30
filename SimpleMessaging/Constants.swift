@@ -9,9 +9,10 @@
 import UIKit
 
 struct Constants {
-    static var LayoutMargins = UIEdgeInsetsMake(16, 16, 16, 16)
-    static var FontFamily = "AvenirNext-Medium"
-    static var BodyFont = UIFont(name: Constants.FontFamily, size: 16)
-    static var HeaderFont = UIFont(name: Constants.FontFamily, size: 24)
-    static var HugeHeaderFont = UIFont(name: Constants.FontFamily, size: 36)
+    static let LayoutMargins = UIEdgeInsetsMake(16, 16, 16, 16)
+    static let GridGutterWidth = CGFloat(16)
+    static let FontFamily = "AvenirNext-Medium"
+    static let BodyFont = UIFont(name: Constants.FontFamily, size: 16)
+    static let HeaderFont = UIFont(name: Constants.FontFamily, size: 24)
+    static let HugeHeaderFont = UIFont(name: Constants.FontFamily, size: 36)
 }

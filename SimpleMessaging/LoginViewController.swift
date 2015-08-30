@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import PureLayout
+import PromiseKit
+import MMX
+import MMX_PromiseKit
 
 enum ViewState{
     case Preload
@@ -64,7 +68,7 @@ class LoginViewController: SMViewController {
         usernameTextField.backgroundColor = UIColor.whiteColor()
         usernameTextField.placeholder = "username"
         self.view.addSubview(usernameTextField)
-        usernameTextField.autoPinEdge(.Top, toEdge: .Bottom, ofView: headerLabel, withOffset: 16)
+        usernameTextField.autoPinEdge(.Top, toEdge: .Bottom, ofView: headerLabel, withOffset: Constants.GridGutterWidth)
         usernameTextField.autoAlignAxisToSuperviewAxis(.Vertical)
         usernameTextField.autoMatchDimension(.Width, toDimension: .Width, ofView: headerLabel)
         
@@ -72,19 +76,65 @@ class LoginViewController: SMViewController {
         emailTextField.placeholder = "email"
         emailTextField.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(emailTextField)
-        emailTextField.autoPinEdge(.Top, toEdge: .Bottom, ofView: usernameTextField, withOffset: 16)
+        emailTextField.autoPinEdge(.Top, toEdge: .Bottom, ofView: usernameTextField, withOffset: Constants.GridGutterWidth)
 
         passwordTextField.alpha = 0
         passwordTextField.backgroundColor = UIColor.whiteColor()
         passwordTextField.placeholder = "password"
         passwordTextField.secureTextEntry = true
         self.view.addSubview(passwordTextField)
-        _loginConstraints.append(passwordTextField.autoPinEdge(.Top, toEdge: .Bottom, ofView: usernameTextField, withOffset: 16))
+        _loginConstraints.append(passwordTextField.autoPinEdge(.Top, toEdge: .Bottom, ofView: usernameTextField, withOffset: Constants.GridGutterWidth))
         (_loginConstraints as NSArray).autoRemoveConstraints()
-        _joinConstraints.append(passwordTextField.autoPinEdge(.Top, toEdge: .Bottom, ofView: emailTextField, withOffset: 16))
+        _joinConstraints.append(passwordTextField.autoPinEdge(.Top, toEdge: .Bottom, ofView: emailTextField, withOffset: Constants.GridGutterWidth))
 
         
+        submitButton.alpha = 0
+        submitButton.backgroundColor = UIColor.simpleMessagingPrimary()
+        submitButton.titleLabel?.textColor = UIColor.whiteColor()
+        self.view.addSubview(submitButton)
+        submitButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: passwordTextField, withOffset: Constants.GridGutterWidth)
+        submitButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext { _ in
+            switch self.viewState{
+            case .Login:
+                MMXUser.logInWithCredential(NSURLCredential(user: self.usernameTextField.text, password: self.passwordTextField.text, persistence: .None))
+                    .then { (o : AnyObject?) -> Void in
+                        let user = o as! MMXUser
+                        let alert = UIAlertController(title: "Yay!", message: "Welcome \(user.username)", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Let's go!", style: .Default, handler: { (_) -> Void in
+                            //Dismiss login
+                            NSNotificationCenter.defaultCenter().postNotificationName("USER_DID_CHANGE", object: nil)
+                        }))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                }
+                    .catch(policy: .AllErrors) { (error:NSError) -> Void in
+                        NSLog("Error logging in %@", error)
+                    }
+            case .Join:
+                let user = MMXUser()
+                user.displayName = self.usernameTextField.text
+                user.email = self.emailTextField.text
+                user.registerWithCredential(NSURLCredential(user: self.usernameTextField.text, password: self.passwordTextField.text, persistence: .None))
+                    .then { (o : AnyObject?) -> Void in
+                        let alert = UIAlertController(title: "Yay!", message: "Welcome \(user.username)", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Let's go!", style: .Default, handler: { (_) -> Void in
+                            //Dismiss login
+                            NSNotificationCenter.defaultCenter().postNotificationName("USER_DID_CHANGE", object: nil)
+                        }))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                    .catch(policy: .AllErrors) { (error:NSError) -> Void in
+                        NSLog("Error registering %@", error)
+                }
+            default:
+                break
+            }
+        }
+        
         toggleFormButton.alpha = 0
+        toggleFormButton.layer.shadowColor = UIColor.blackColor().CGColor
+        toggleFormButton.layer.shadowOpacity = 0.1
+        toggleFormButton.layer.shadowRadius = 3;
+        toggleFormButton.layer.shadowOffset = CGSizeZero
         toggleFormButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext { _ in
             switch self.viewState{
             case .Login:
@@ -96,9 +146,9 @@ class LoginViewController: SMViewController {
             }
         }
         self.view.addSubview(toggleFormButton)
-        toggleFormButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: passwordTextField, withOffset: 32)
+        toggleFormButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: submitButton, withOffset: 32)
         
-        let views = [usernameTextField, emailTextField, passwordTextField, toggleFormButton]
+        let views = [usernameTextField, emailTextField, passwordTextField, submitButton, toggleFormButton]
         (views as NSArray).autoAlignViewsToAxis(.Vertical)
         (views as NSArray).autoMatchViewsDimension(.Width)
         
@@ -113,8 +163,9 @@ class LoginViewController: SMViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        //Prepare initial state before animation
         self.joinConstraints.autoInstallConstraints()
-
+        submitButton.setTitle("Join", forState: .Normal)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -152,6 +203,7 @@ class LoginViewController: SMViewController {
                 self.usernameTextField.alpha = 1
                 self.emailTextField.alpha = 0
                 self.passwordTextField.alpha = 1
+                self.submitButton.alpha = 1
                 self.toggleFormButton.alpha = 1
 
             case .Join:
@@ -161,6 +213,7 @@ class LoginViewController: SMViewController {
                 self.usernameTextField.alpha = 1
                 self.emailTextField.alpha = 1
                 self.passwordTextField.alpha = 1
+                self.submitButton.alpha = 1
                 self.toggleFormButton.alpha = 1
                 
             default:
@@ -172,8 +225,10 @@ class LoginViewController: SMViewController {
             ).then { _ -> Void in
                 switch self.viewState{
                 case .Login:
+                    self.submitButton.setTitle("Login", forState: .Normal)
                     self.toggleFormButton.setTitle("I need to join", forState: .Normal)
                 case .Join:
+                    self.submitButton.setTitle("Join", forState: .Normal)
                     self.toggleFormButton.setTitle("I have an account", forState: .Normal)
                 default:
                     break

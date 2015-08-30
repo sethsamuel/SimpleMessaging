@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         UILabel.appearance().font = Constants.BodyFont
+        UITextField.appearance().font = Constants.BodyFont
         
         //Initialize MMX
         MMX.setupWithConfiguration("default")
