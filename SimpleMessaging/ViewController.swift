@@ -8,9 +8,7 @@
 
 import UIKit
 import PromiseKit
-import MMX
 import MMX_PromiseKit
-import PureLayout
 
 class ViewController: SMViewController {
 

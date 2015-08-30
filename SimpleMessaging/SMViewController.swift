@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import PromiseKit
 import PureLayout
+import ReactiveCocoa
 
 class SMViewController: UIViewController {
     var backgroundView = BackgroundView.newAutoLayoutView()
