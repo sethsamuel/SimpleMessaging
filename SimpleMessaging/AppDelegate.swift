@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: frame)
 
         if let user = MMXUser.currentUser(){
-            self.window?.rootViewController = ViewController()
+            self.window?.rootViewController = ChannelsViewController()
             self.window?.makeKeyAndVisible()
         }else{
             self.window?.rootViewController = LoginViewController()
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func userDidChange(){
         if let user = MMXUser.currentUser(){
-            self.window?.rootViewController = ViewController()
+            self.window?.rootViewController = ChannelsViewController()
         }else{
             self.window?.rootViewController = LoginViewController()
         }

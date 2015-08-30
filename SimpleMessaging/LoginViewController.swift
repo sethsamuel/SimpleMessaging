@@ -34,6 +34,7 @@ class LoginViewController: SMViewController {
     
     var loginConstraints = []
     var joinConstraints = []
+    let protectionSpace = NSURLProtectionSpace(host: "magnet.com", port: 443, `protocol`: nil, realm: nil, authenticationMethod: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,34 +97,14 @@ class LoginViewController: SMViewController {
         submitButton.rac_signalForControlEvents(.TouchUpInside).subscribeNext { _ in
             switch self.viewState{
             case .Login:
-                MMXUser.logInWithCredential(NSURLCredential(user: self.usernameTextField.text, password: self.passwordTextField.text, persistence: .None))
-                    .then { (o : AnyObject?) -> Void in
-                        let user = o as! MMXUser
-                        let alert = UIAlertController(title: "Yay!", message: "Welcome \(user.username)", preferredStyle: .Alert)
-                        alert.addAction(UIAlertAction(title: "Let's go!", style: .Default, handler: { (_) -> Void in
-                            //Dismiss login
-                            NSNotificationCenter.defaultCenter().postNotificationName("USER_DID_CHANGE", object: nil)
-                        }))
-                        self.presentViewController(alert, animated: true, completion: nil)
-                }
-                    .catch(policy: .AllErrors) { (error:NSError) -> Void in
-                        NSLog("Error logging in %@", error)
-                    }
+                let credential = NSURLCredential(user: self.usernameTextField.text, password: self.passwordTextField.text, persistence: .Permanent)
+                self.submitLoginWithCredential(credential)
             case .Join:
-                let user = MMXUser()
-                user.displayName = self.usernameTextField.text
-                user.email = self.emailTextField.text
-                user.registerWithCredential(NSURLCredential(user: self.usernameTextField.text, password: self.passwordTextField.text, persistence: .None))
-                    .then { (o : AnyObject?) -> Void in
-                        let alert = UIAlertController(title: "Yay!", message: "Welcome \(user.username)", preferredStyle: .Alert)
-                        alert.addAction(UIAlertAction(title: "Let's go!", style: .Default, handler: { (_) -> Void in
-                            //Dismiss login
-                            NSNotificationCenter.defaultCenter().postNotificationName("USER_DID_CHANGE", object: nil)
-                        }))
-                        self.presentViewController(alert, animated: true, completion: nil)
-                    }
-                    .catch(policy: .AllErrors) { (error:NSError) -> Void in
-                        NSLog("Error registering %@", error)
+                self.submitJoin()
+                    .then{ () -> Promise<Void> in
+                        let credential = NSURLCredential(user: self.usernameTextField.text, password: self.passwordTextField.text, persistence: .Permanent)
+
+                        return self.submitLoginWithCredential(credential)
                 }
             default:
                 break
@@ -180,7 +161,14 @@ class LoginViewController: SMViewController {
                 self.headerLabel.alpha = 1
             },
             completion: { (finished: Bool)  in
-                self.viewState = .Join;
+                //Check if saved credentials exist
+                let credentials = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(self.protectionSpace)
+                if let credential = credentials?.values.first as? NSURLCredential{
+                    self.submitLoginWithCredential(credential)
+                }else{
+                    self.viewState = .Join;
+                }
+                
             }
         )
     }
@@ -234,5 +222,28 @@ class LoginViewController: SMViewController {
                     break
                 }
         }
+    }
+}
+
+// MARK: Network methods
+extension LoginViewController  {
+    func submitLoginWithCredential (credential : NSURLCredential) -> Promise<Void> {
+        return MMXUser.logInWithCredential(credential)
+            .then { (o : AnyObject?) -> Void in
+                //Save credential to keychain
+                NSURLCredentialStorage.sharedCredentialStorage().setCredential(credential, forProtectionSpace: self.protectionSpace)
+                NSNotificationCenter.defaultCenter().postNotificationName("USER_DID_CHANGE", object: nil)
+            }
+    }
+    
+    func submitJoin () -> Promise<Void> {
+        let user = MMXUser()
+        user.displayName = self.usernameTextField.text
+        user.email = self.emailTextField.text
+        return user.registerWithCredential(NSURLCredential(user: self.usernameTextField.text, password: self.passwordTextField.text, persistence: .None))
+            .then{ (o : AnyObject?) -> Void in
+                
+                }
+        
     }
 }
