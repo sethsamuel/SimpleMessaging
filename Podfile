@@ -3,19 +3,21 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'SimpleMessaging' do
-#    pod 'MMX'
-#    pod 'PromiseKit'
+    pod 'MMX'
+    pod 'PromiseKit'
     pod 'PureLayout'
     pod 'MMX-PromiseKit'
+#    pod 'MMX-PromiseKit', :path => "../MMX-PromiseKit"
     pod 'ReactiveCocoa'
     pod 'FontAwesomeIconFactory'
 end
 
 target 'SimpleMessagingTests' do
-#    pod 'MMX'
-#    pod 'PromiseKit'
+    pod 'MMX'
+    pod 'PromiseKit'
     pod 'PureLayout'
     pod 'MMX-PromiseKit'
+#    pod 'MMX-PromiseKit', :path => "../MMX-PromiseKit"
     pod 'ReactiveCocoa'
     pod 'FontAwesomeIconFactory'
 end

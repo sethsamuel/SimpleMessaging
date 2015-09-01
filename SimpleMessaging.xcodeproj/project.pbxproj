@@ -66,6 +66,7 @@
 		FA04D2EC1B9253370048339D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA04D2EF1B926DB40048339D /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
 		FA04D2F61B935F160048339D /* SMTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMTextField.swift; sourceTree = "<group>"; };
+		FA7509281B95628200BC5AAD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,7 @@
 		52B0BD3256B73AD430F3E500 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA7509281B95628200BC5AAD /* libxml2.dylib */,
 				E6EB719CD1CD29A234BC3C09 /* Pods_SimpleMessaging.framework */,
 				45F1320D377290AD07976A6F /* Pods_SimpleMessagingTests.framework */,
 			);

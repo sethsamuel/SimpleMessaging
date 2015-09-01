@@ -32,7 +32,7 @@ PODS:
     - MMXXMPPFramework (= 3.6.11)
   - MMX-PromiseKit (0.0.1):
     - MMX (~> 1.5)
-    - PromiseKit (~> 2.0)
+    - PromiseKit (~> 2)
   - MMXXMPPFramework (3.6.11):
     - MMXXMPPFramework/Core (= 3.6.11)
     - MMXXMPPFramework/CoreDataStorage (= 3.6.11)
@@ -92,9 +92,15 @@ PODS:
 
 DEPENDENCIES:
   - FontAwesomeIconFactory
-  - MMX-PromiseKit
+  - MMX
+  - MMX-PromiseKit (from `../MMX-PromiseKit`)
+  - PromiseKit
   - PureLayout
   - ReactiveCocoa
+
+EXTERNAL SOURCES:
+  MMX-PromiseKit:
+    :path: ../MMX-PromiseKit
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7cbf214b27f8e7f7574db6a3fd96352ffaed433d
@@ -103,7 +109,7 @@ SPEC CHECKSUMS:
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MDMCoreData: 402f754cda90865026a209243f1667824e775649
   MMX: 2b9960ef1597950e8aa14cb530eace373fa1a41a
-  MMX-PromiseKit: b014eb968840f38c08fb514bcc3fbb72b3535506
+  MMX-PromiseKit: ddd7ed3afcde5109b98fd3edab2ef43d46c0a3fc
   MMXXMPPFramework: ebb0f3515d686bd90f67d91ba47e361fecc16358
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
   PromiseKit: 9c92257e39abf4b634533d44268592dfc6e4b5c2

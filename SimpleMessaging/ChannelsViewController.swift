@@ -16,6 +16,12 @@ import FontAwesomeIconFactory
 class ChannelsViewController: SMViewController {
 
     let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+    let refreshControl = UIRefreshControl()
+    var channels : [MMXChannel] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,33 +36,48 @@ class ChannelsViewController: SMViewController {
         
         collectionView.backgroundColor = UIColor.clearColor()
         collectionView.contentInset = UIEdgeInsetsMake(CGRectGetHeight(UIApplication.sharedApplication().statusBarFrame), 0, 0, 0)
+        collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "channelCell")
         collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "channelsHeader")
         self.view.addSubview(collectionView)
         collectionView.autoPinEdgesToSuperviewEdges()
+        
+        refreshControl.rac_signalForControlEvents(.ValueChanged).subscribeNext{ _ in
+            self.refreshData()
+        }
+        collectionView.addSubview(refreshControl)
+//        refreshControl.autoAlignAxisToSuperviewAxis(.Vertical)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         
-        let p = MMXChannel.subscribedChannels() as AnyPromise;
-        p.then{ (t : AnyObject?) -> AnyPromise in
-            let tags = t as! [String];
-            
-            for tag in tags{
-                NSLog("%@", tag);
-            }
-            
-            return AnyPromise(bound: Promise());
-        };
+        self.refreshData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    
+    func refreshData(){
+        MMXChannel.findByTags(["SimpleMessaging"])
+            .then{
+                count, channels -> Void in
+                self.channels = channels
+                self.refreshControl.endRefreshing()
+        }
+//        let p = MMXChannel.findByTags(["SimpleMessaging"]) as AnyPromise;
+//        p.then{ (o : AnyObject?) -> Void in
+//            if let channels = c as?  {
+//                self.channels = channels
+//            }
+//            self.refreshControl.endRefreshing()
+//        }
     }
 
 }
@@ -81,7 +102,8 @@ extension ChannelsViewController : UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(100, 100)
+        let width = (CGRectGetWidth(collectionView.bounds)-Constants.GridGutterWidth*3.0)/2.0
+        return CGSizeMake(width, width)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -96,7 +118,7 @@ extension ChannelsViewController : UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return channels.count
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -133,6 +155,14 @@ extension ChannelsViewController : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell : UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("channelCell", forIndexPath: indexPath) as! UICollectionViewCell
         cell.backgroundColor = UIColor.whiteColor()
+        let channel = channels[indexPath.row]
+        let label = UILabel()
+        label.text = channel.name
+        cell.addSubview(label)
+        label.autoCenterInSuperview()
+        label.textAlignment = .Center
+        label.autoMatchDimension(.Width, toDimension: .Width, ofView: cell, withOffset: -2.0*Constants.GridGutterWidth)
+        
         return cell
     }
 }
