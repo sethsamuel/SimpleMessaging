@@ -5,6 +5,7 @@ PODS:
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
+  - FontAwesomeIconFactory (2.0.2)
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
@@ -90,6 +91,7 @@ PODS:
     - ReactiveCocoa/Core
 
 DEPENDENCIES:
+  - FontAwesomeIconFactory
   - MMX-PromiseKit
   - PureLayout
   - ReactiveCocoa
@@ -97,6 +99,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7cbf214b27f8e7f7574db6a3fd96352ffaed433d
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
+  FontAwesomeIconFactory: 36ea917783d4df460a6a3abf7e26481d7d49aef2
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MDMCoreData: 402f754cda90865026a209243f1667824e775649
   MMX: 2b9960ef1597950e8aa14cb530eace373fa1a41a

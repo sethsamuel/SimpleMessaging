@@ -14,8 +14,6 @@
 		FA04D2BD1B9122F50048339D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2BC1B9122F50048339D /* Images.xcassets */; };
 		FA04D2C01B9122F50048339D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2BE1B9122F50048339D /* LaunchScreen.xib */; };
 		FA04D2CC1B9122F50048339D /* SimpleMessagingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2CB1B9122F50048339D /* SimpleMessagingTests.swift */; };
-		FA04D2D91B9125880048339D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2D81B9125880048339D /* ViewController.m */; };
-		FA04D2DA1B9125880048339D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2D81B9125880048339D /* ViewController.m */; };
 		FA04D2DD1B92255F0048339D /* UIColor+SimpleMessaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2DC1B92255F0048339D /* UIColor+SimpleMessaging.swift */; };
 		FA04D2DF1B9227C30048339D /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2DE1B9227C30048339D /* BackgroundView.swift */; };
 		FA04D2E11B9234EB0048339D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2E01B9234EB0048339D /* LoginViewController.swift */; };
@@ -61,8 +59,6 @@
 		FA04D2CB1B9122F50048339D /* SimpleMessagingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMessagingTests.swift; sourceTree = "<group>"; };
 		FA04D2D51B9125870048339D /* SimpleMessaging-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleMessaging-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA04D2D61B9125880048339D /* SimpleMessagingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleMessagingTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		FA04D2D71B9125880048339D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FA04D2D81B9125880048339D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FA04D2DC1B92255F0048339D /* UIColor+SimpleMessaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SimpleMessaging.swift"; sourceTree = "<group>"; };
 		FA04D2DE1B9227C30048339D /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		FA04D2E01B9234EB0048339D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -115,8 +111,6 @@
 		FA04D2A71B9122F50048339D = {
 			isa = PBXGroup;
 			children = (
-				FA04D2D71B9125880048339D /* ViewController.h */,
-				FA04D2D81B9125880048339D /* ViewController.m */,
 				FA04D2EF1B926DB40048339D /* Configurations.plist */,
 				FA04D2B21B9122F50048339D /* SimpleMessaging */,
 				FA04D2C81B9122F50048339D /* SimpleMessagingTests */,
@@ -407,7 +401,6 @@
 				FA04D2E11B9234EB0048339D /* LoginViewController.swift in Sources */,
 				FA04D2DF1B9227C30048339D /* BackgroundView.swift in Sources */,
 				FA04D2DD1B92255F0048339D /* UIColor+SimpleMessaging.swift in Sources */,
-				FA04D2D91B9125880048339D /* ViewController.m in Sources */,
 				FA04D2B81B9122F50048339D /* ChannelsViewController.swift in Sources */,
 				FA04D2B61B9122F50048339D /* AppDelegate.swift in Sources */,
 				FA04D2E51B9235290048339D /* SMViewController.swift in Sources */,
@@ -426,7 +419,6 @@
 				FA04D2E21B9234F00048339D /* ChannelsViewController.swift in Sources */,
 				FA04D2E61B9235330048339D /* SMViewController.swift in Sources */,
 				FA04D2EB1B9236780048339D /* UIColor+SimpleMessaging.swift in Sources */,
-				FA04D2DA1B9125880048339D /* ViewController.m in Sources */,
 				FA04D2CC1B9122F50048339D /* SimpleMessagingTests.swift in Sources */,
 				FA04D2EE1B9253370048339D /* Constants.swift in Sources */,
 			);

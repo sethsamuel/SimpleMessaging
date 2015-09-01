@@ -11,6 +11,7 @@ import PureLayout
 import PromiseKit
 import MMX
 import MMX_PromiseKit
+import FontAwesomeIconFactory
 
 class ChannelsViewController: SMViewController {
 
@@ -32,6 +33,7 @@ class ChannelsViewController: SMViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "channelCell")
+        collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "channelsHeader")
         self.view.addSubview(collectionView)
         collectionView.autoPinEdgesToSuperviewEdges()
     }
@@ -81,6 +83,11 @@ extension ChannelsViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(100, 100)
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 40)
+    }
+    
 }
 
 extension ChannelsViewController : UICollectionViewDataSource {
@@ -90,6 +97,37 @@ extension ChannelsViewController : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind{
+        case UICollectionElementKindSectionHeader:
+            let header : UICollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "channelsHeader", forIndexPath: indexPath) as! UICollectionReusableView
+            let button = UIButton()
+            button.setTitle("Logout", forState: .Normal)
+            button.titleLabel?.font = button.titleLabel?.font.fontWithSize(14)
+            let factory = NIKFontAwesomeIconFactory.buttonIconFactory()
+            factory.colors = [UIColor.whiteColor()]
+            button.setImage(factory.createImageForIcon(.SignOut), forState: .Normal)
+            
+            button.rac_signalForControlEvents(.TouchUpInside).subscribeNext { _ in
+                MMXUser.logOut()
+                    .then{ _ -> Void in
+                        if let credentials = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(Constants.MMXProtectionSpace) as? [NSString:NSURLCredential] {
+                            for credential in credentials.values{
+                                NSURLCredentialStorage.sharedCredentialStorage().removeCredential(credential, forProtectionSpace: Constants.MMXProtectionSpace)
+                            }
+                        }
+                        NSNotificationCenter.defaultCenter().postNotificationName("USER_DID_CHANGE", object: nil)
+                }
+            }
+            header.addSubview(button)
+            button.autoAlignAxisToSuperviewAxis(.Horizontal)
+            button.autoPinEdgeToSuperviewEdge(.Trailing, withInset: Constants.GridGutterWidth)
+            return header
+        default:
+            return UICollectionReusableView()
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

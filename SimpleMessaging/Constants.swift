@@ -15,4 +15,5 @@ struct Constants {
     static let BodyFont = UIFont(name: Constants.FontFamily, size: 16)
     static let HeaderFont = UIFont(name: Constants.FontFamily, size: 24)
     static let HugeHeaderFont = UIFont(name: Constants.FontFamily, size: 36)
+    static let MMXProtectionSpace = NSURLProtectionSpace(host: "magnet.com", port: 443, `protocol`: nil, realm: nil, authenticationMethod: nil)
 }

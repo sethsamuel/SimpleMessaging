@@ -8,6 +8,7 @@ target 'SimpleMessaging' do
     pod 'PureLayout'
     pod 'MMX-PromiseKit'
     pod 'ReactiveCocoa'
+    pod 'FontAwesomeIconFactory'
 end
 
 target 'SimpleMessagingTests' do
@@ -16,5 +17,6 @@ target 'SimpleMessagingTests' do
     pod 'PureLayout'
     pod 'MMX-PromiseKit'
     pod 'ReactiveCocoa'
+    pod 'FontAwesomeIconFactory'
 end
 

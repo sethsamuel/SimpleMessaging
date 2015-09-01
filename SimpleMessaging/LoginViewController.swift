@@ -39,7 +39,6 @@ class LoginViewController: SMViewController {
     
     var loginConstraints = []
     var joinConstraints = []
-    let protectionSpace = NSURLProtectionSpace(host: "magnet.com", port: 443, `protocol`: nil, realm: nil, authenticationMethod: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,7 +149,6 @@ class LoginViewController: SMViewController {
         joinConstraints.autoRemoveConstraints()
 
         loadingView.alpha = 0
-        loadingView.hidden = true
         loadingView.backgroundColor = UIColor(white: 0, alpha: 0.4)
         view.addSubview(loadingView)
         loadingView.autoPinEdgesToSuperviewEdges()
@@ -189,7 +187,7 @@ class LoginViewController: SMViewController {
             },
             completion: { (finished: Bool)  in
                 //Check if saved credentials exist
-                let credentials = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(self.protectionSpace)
+                let credentials = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(Constants.MMXProtectionSpace)
                 if let credential = credentials?.values.first as? NSURLCredential{
                     self.submitLoginWithCredential(credential)
                 }else{
@@ -284,7 +282,7 @@ extension LoginViewController  {
         return MMXUser.logInWithCredential(credential)
             .then { (o : AnyObject?) -> Void in
                 //Save credential to keychain
-                NSURLCredentialStorage.sharedCredentialStorage().setCredential(credential, forProtectionSpace: self.protectionSpace)
+                NSURLCredentialStorage.sharedCredentialStorage().setCredential(credential, forProtectionSpace: Constants.MMXProtectionSpace)
                 NSNotificationCenter.defaultCenter().postNotificationName("USER_DID_CHANGE", object: nil)
             }
     }
