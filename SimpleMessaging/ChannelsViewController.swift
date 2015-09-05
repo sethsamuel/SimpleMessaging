@@ -44,6 +44,7 @@ class ChannelsViewController: SMViewController {
         self.view.addSubview(collectionView)
         collectionView.autoPinEdgesToSuperviewEdges()
         
+        refreshControl.tintColor = UIColor.whiteColor()
         refreshControl.rac_signalForControlEvents(.ValueChanged).subscribeNext{ _ in
             self.refreshData()
         }
@@ -70,6 +71,26 @@ class ChannelsViewController: SMViewController {
                 count, channels -> Void in
                 self.channels = channels
                 self.refreshControl.endRefreshing()
+        }.catch(policy: .AllErrors) { (error) -> Void in
+            if error.domain == MMXErrorDomain && error.code == 403{
+                //Try to relogin
+                let credentials = NSURLCredentialStorage.sharedCredentialStorage().credentialsForProtectionSpace(Constants.MMXProtectionSpace)
+                if let credential = credentials?.values.first as? NSURLCredential{
+                    MMXUser.logInWithCredential(credential)
+                        .then { _ -> Void in
+                            self.refreshData()
+                        }.catch(policy: .AllErrors) { (error) -> Void in
+                            //TODO: Add error
+                            self.refreshControl.endRefreshing()
+                    }
+                }else{
+                    //TODO: Add error
+                    self.refreshControl.endRefreshing()
+                }
+            }else{
+                //TODO: Add error message
+                self.refreshControl.endRefreshing()
+            }
         }
 //        let p = MMXChannel.findByTags(["SimpleMessaging"]) as AnyPromise;
 //        p.then{ (o : AnyObject?) -> Void in
