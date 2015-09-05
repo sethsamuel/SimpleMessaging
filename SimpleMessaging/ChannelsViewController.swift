@@ -151,7 +151,7 @@ extension ChannelsViewController : UICollectionViewDataSource {
             button.titleLabel?.font = button.titleLabel?.font.fontWithSize(14)
             let factory = NIKFontAwesomeIconFactory.buttonIconFactory()
             factory.colors = [UIColor.whiteColor()]
-            button.setImage(factory.createImageForIcon(.SignOut), forState: .Normal)
+            button.setImage(factory.createImageForIcon(.IconSignOut), forState: .Normal)
             
             button.rac_signalForControlEvents(.TouchUpInside).subscribeNext { _ in
                 MMXUser.logOut()
