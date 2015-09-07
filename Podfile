@@ -12,6 +12,7 @@ target 'SimpleMessaging' do
 #    pod 'MMX-PromiseKit', :path => "../MMX-PromiseKit"
     pod 'ReactiveCocoa'
     pod 'FontAwesomeIconFactory'
+    pod 'UIColor_Hex_Swift'
 end
 
 target 'SimpleMessagingTests' do
@@ -22,5 +23,6 @@ target 'SimpleMessagingTests' do
 #    pod 'MMX-PromiseKit', :path => "../MMX-PromiseKit"
     pod 'ReactiveCocoa'
     pod 'FontAwesomeIconFactory'
+    pod 'UIColor_Hex_Swift'
 end
 

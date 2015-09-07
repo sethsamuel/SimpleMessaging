@@ -29,6 +29,14 @@
 		FA04D2F11B926DB40048339D /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2EF1B926DB40048339D /* Configurations.plist */; };
 		FA04D2F71B935F160048339D /* SMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2F61B935F160048339D /* SMTextField.swift */; };
 		FA04D2F81B935FD40048339D /* SMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2F61B935F160048339D /* SMTextField.swift */; };
+		FA9504FE1B9B814900CC361F /* HexagonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9504FD1B9B814900CC361F /* HexagonCollectionViewCell.swift */; };
+		FA9504FF1B9B82F500CC361F /* HexagonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9504FD1B9B814900CC361F /* HexagonCollectionViewCell.swift */; };
+		FA9505011B9BAF8100CC361F /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9505001B9BAF8100CC361F /* ChannelCollectionViewCell.swift */; };
+		FA9505021B9BAF8100CC361F /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9505001B9BAF8100CC361F /* ChannelCollectionViewCell.swift */; };
+		FA9505041B9BB69200CC361F /* ChannelIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9505031B9BB69200CC361F /* ChannelIconView.swift */; };
+		FA9505051B9BB69200CC361F /* ChannelIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9505031B9BB69200CC361F /* ChannelIconView.swift */; };
+		FA9505071B9BB91800CC361F /* String+SimpleMessaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9505061B9BB91800CC361F /* String+SimpleMessaging.swift */; };
+		FA9505081B9BB91800CC361F /* String+SimpleMessaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9505061B9BB91800CC361F /* String+SimpleMessaging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +75,10 @@
 		FA04D2EF1B926DB40048339D /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
 		FA04D2F61B935F160048339D /* SMTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMTextField.swift; sourceTree = "<group>"; };
 		FA7509281B95628200BC5AAD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		FA9504FD1B9B814900CC361F /* HexagonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA9505001B9BAF8100CC361F /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA9505031B9BB69200CC361F /* ChannelIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelIconView.swift; sourceTree = "<group>"; };
+		FA9505061B9BB91800CC361F /* String+SimpleMessaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+SimpleMessaging.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +200,9 @@
 			children = (
 				FA04D2DE1B9227C30048339D /* BackgroundView.swift */,
 				FA04D2F61B935F160048339D /* SMTextField.swift */,
+				FA9504FD1B9B814900CC361F /* HexagonCollectionViewCell.swift */,
+				FA9505001B9BAF8100CC361F /* ChannelCollectionViewCell.swift */,
+				FA9505031B9BB69200CC361F /* ChannelIconView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -196,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				FA04D2DC1B92255F0048339D /* UIColor+SimpleMessaging.swift */,
+				FA9505061B9BB91800CC361F /* String+SimpleMessaging.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -401,8 +417,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA04D2E11B9234EB0048339D /* LoginViewController.swift in Sources */,
+				FA9505071B9BB91800CC361F /* String+SimpleMessaging.swift in Sources */,
 				FA04D2DF1B9227C30048339D /* BackgroundView.swift in Sources */,
 				FA04D2DD1B92255F0048339D /* UIColor+SimpleMessaging.swift in Sources */,
+				FA9504FE1B9B814900CC361F /* HexagonCollectionViewCell.swift in Sources */,
+				FA9505011B9BAF8100CC361F /* ChannelCollectionViewCell.swift in Sources */,
+				FA9505041B9BB69200CC361F /* ChannelIconView.swift in Sources */,
 				FA04D2B81B9122F50048339D /* ChannelsViewController.swift in Sources */,
 				FA04D2B61B9122F50048339D /* AppDelegate.swift in Sources */,
 				FA04D2E51B9235290048339D /* SMViewController.swift in Sources */,
@@ -416,8 +436,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA04D2EA1B92366C0048339D /* BackgroundView.swift in Sources */,
+				FA9505081B9BB91800CC361F /* String+SimpleMessaging.swift in Sources */,
 				FA04D2F81B935FD40048339D /* SMTextField.swift in Sources */,
 				FA04D2E31B9234F00048339D /* LoginViewController.swift in Sources */,
+				FA9504FF1B9B82F500CC361F /* HexagonCollectionViewCell.swift in Sources */,
+				FA9505021B9BAF8100CC361F /* ChannelCollectionViewCell.swift in Sources */,
+				FA9505051B9BB69200CC361F /* ChannelIconView.swift in Sources */,
 				FA04D2E21B9234F00048339D /* ChannelsViewController.swift in Sources */,
 				FA04D2E61B9235330048339D /* SMViewController.swift in Sources */,
 				FA04D2EB1B9236780048339D /* UIColor+SimpleMessaging.swift in Sources */,

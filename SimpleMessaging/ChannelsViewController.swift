@@ -39,7 +39,7 @@ class ChannelsViewController: SMViewController {
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "channelCell")
+        collectionView.registerClass(ChannelCollectionViewCell.self, forCellWithReuseIdentifier: "channelCell")
         collectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "channelsHeader")
         self.view.addSubview(collectionView)
         collectionView.autoPinEdgesToSuperviewEdges()
@@ -174,17 +174,14 @@ extension ChannelsViewController : UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell : UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("channelCell", forIndexPath: indexPath) as! UICollectionViewCell
-        cell.backgroundColor = UIColor.whiteColor()
-        let channel = channels[indexPath.row]
-        let label = UILabel()
-        label.text = channel.name
-        cell.addSubview(label)
-        label.autoCenterInSuperview()
-        label.textAlignment = .Center
-        label.autoMatchDimension(.Width, toDimension: .Width, ofView: cell, withOffset: -2.0*Constants.GridGutterWidth)
+        let cell : ChannelCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("channelCell", forIndexPath: indexPath) as! ChannelCollectionViewCell
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        let channel = channels[indexPath.row]
+        (cell as! ChannelCollectionViewCell).channel = channel
     }
 }
 

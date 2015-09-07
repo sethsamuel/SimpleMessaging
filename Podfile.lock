@@ -89,6 +89,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - UIColor_Hex_Swift (1.1)
 
 DEPENDENCIES:
   - FontAwesomeIconFactory
@@ -97,6 +98,7 @@ DEPENDENCIES:
   - PromiseKit
   - PureLayout
   - ReactiveCocoa
+  - UIColor_Hex_Swift
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7cbf214b27f8e7f7574db6a3fd96352ffaed433d
@@ -111,5 +113,6 @@ SPEC CHECKSUMS:
   PromiseKit: 9c92257e39abf4b634533d44268592dfc6e4b5c2
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  UIColor_Hex_Swift: 55486cf30c685fab8621f4ec8efcc7713df08a67
 
 COCOAPODS: 0.38.0
