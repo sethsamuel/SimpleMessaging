@@ -17,10 +17,10 @@ class BackgroundView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        self.drawCanvas2(primary: self.color)
+        self.drawCanvas2(primary: self.color, rect: rect)
     }
     
-    func drawCanvas2(#primary: UIColor) {
+    func drawCanvas2(#primary: UIColor, rect : CGRect) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
         
@@ -37,12 +37,14 @@ class BackgroundView: UIView {
         let background = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), [primary.CGColor, darkPrimary.CGColor], [0, 1])
         
         //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRectMake(0, 0, 414, 736))
+        let widthScale = rect.width/414.0
+        let heightScale = rect.height/736.0
+        let rectanglePath = UIBezierPath(rect: CGRectMake(0, 0, 414*widthScale, 736*heightScale))
         CGContextSaveGState(context)
         rectanglePath.addClip()
         CGContextDrawRadialGradient(context, background,
-            CGPointMake(261.38, 212.07), 132.82,
-            CGPointMake(147.29, 427.71), 560.14,
+            CGPointMake(261.38*widthScale, 212.07*heightScale), 132.82*heightScale,
+            CGPointMake(147.29*widthScale, 427.71*heightScale), 560.14*heightScale,
             UInt32(kCGGradientDrawsBeforeStartLocation) | UInt32(kCGGradientDrawsAfterEndLocation))
         CGContextRestoreGState(context)
     }

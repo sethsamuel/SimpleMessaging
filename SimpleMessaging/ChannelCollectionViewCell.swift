@@ -8,10 +8,18 @@
 
 import UIKit
 import MMX
+import FontAwesomeIconFactory
+
 
 class ChannelCollectionViewCell : HexagonCollectionViewCell{
     private let label : UILabel = UILabel.newAutoLayoutView()
     private let icon : ChannelIconView = ChannelIconView()
+    private let addIcon = UIImageView.newAutoLayoutView()
+    var isAddCell  = false {
+        didSet{
+            self.addIcon.hidden = !isAddCell
+        }
+    }
     var channel:MMXChannel = MMXChannel() {
         didSet{
 //            label.text = channel.name
@@ -37,14 +45,32 @@ class ChannelCollectionViewCell : HexagonCollectionViewCell{
         icon.autoMatchDimension(.Height, toDimension: .Height, ofView: self, withMultiplier: 0.5)
         icon.autoMatchDimension(.Width, toDimension: .Height, ofView: icon)
         
+//        addButton.setTitle("+", forState: .Normal)
+        let factory = NIKFontAwesomeIconFactory.buttonIconFactory()
+        factory.colors = [UIColor.simpleMessagingPrimary()]
+        factory.size = 196
+        addIcon.image = factory.createImageForIcon(.IconPlus)
+        addIcon.contentMode = .ScaleAspectFill
+//        addButton.setTitleColor(UIColor.simpleMessagingPrimary(), forState: .Normal)
+        self.addSubview(addIcon)
+        addIcon.autoCenterInSuperview()
+        addIcon.autoMatchDimension(.Height, toDimension: .Height, ofView: self, withMultiplier: 0.5)
+        addIcon.autoMatchDimension(.Width, toDimension: .Height, ofView: addIcon)
     }
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
     }
     
     override func prepareForReuse() {
 //        label.text = ""
         icon.alpha = 0
+        addIcon.hidden = true
     }
 }

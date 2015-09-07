@@ -24,7 +24,7 @@ class HexagonCollectionViewCell : UICollectionViewCell{
         self.backgroundColor = UIColor.clearColor()
 
         //Add cell background shap
-        shapeLayer.fillColor = UIColor.whiteColor().CGColor
+        shapeLayer.fillColor = UIColor(white: 1, alpha: 0.75).CGColor
         self.layer.addSublayer(shapeLayer)
     }
     
@@ -32,14 +32,14 @@ class HexagonCollectionViewCell : UICollectionViewCell{
         super.layoutSubviews()
         shapeLayer.frame = self.layer.bounds
         let polygonPath = UIBezierPath()
-        polygonPath.moveToPoint(CGPointMake(112, 0))
-        polygonPath.addLineToPoint(CGPointMake(209, 56))
-        polygonPath.addLineToPoint(CGPointMake(209, 168))
-        polygonPath.addLineToPoint(CGPointMake(112, 224))
-        polygonPath.addLineToPoint(CGPointMake(15, 168))
-        polygonPath.addLineToPoint(CGPointMake(15, 56))
+        polygonPath.moveToPoint(CGPointMake(97, 0))
+        polygonPath.addLineToPoint(CGPointMake(194, 56))
+        polygonPath.addLineToPoint(CGPointMake(194, 168))
+        polygonPath.addLineToPoint(CGPointMake(97, 224))
+        polygonPath.addLineToPoint(CGPointMake(0, 168))
+        polygonPath.addLineToPoint(CGPointMake(0, 56))
         polygonPath.closePath()
-        var scaleTransform = CGAffineTransformMakeScale(CGRectGetWidth(shapeLayer.frame)/224.0, CGRectGetWidth(shapeLayer.frame)/224.0)
+        var scaleTransform = CGAffineTransformMakeScale(CGRectGetWidth(shapeLayer.frame)/194.0, CGRectGetHeight(shapeLayer.frame)/224.0)
 //        shapeLayer.path = CGPathCreateCopyByTransformingPath(polygonPath, &scaleTransform)
         shapeLayer.path = withUnsafePointer(&scaleTransform){ (transform: UnsafePointer<CGAffineTransform>) -> (CGPath) in
             return CGPathCreateCopyByTransformingPath(polygonPath.CGPath, transform)

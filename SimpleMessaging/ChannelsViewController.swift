@@ -105,7 +105,42 @@ class ChannelsViewController: SMViewController {
 
 extension ChannelsViewController : UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        if indexPath.row == 0{
+            //Add channel
+            let alert = UIAlertController(title: "New Channel", message: "What's the frequency, Kenneth?", preferredStyle: .Alert)
+            alert.addTextFieldWithConfigurationHandler{ (textField : UITextField!) -> Void in
+                textField.placeholder = "Channel name"
+                textField.keyboardType = UIKeyboardType.ASCIICapable
+            }
+            alert.addAction(UIAlertAction(title: "Create", style: UIAlertActionStyle.Default) { (action) -> Void in
+                if let nameField = alert.textFields?.first as? UITextField{
+                    let channel = MMXChannel(name: nameField.text, summary: "")
+                    channel.isPublic = true
+                    channel.create()
+                        .then{ 
+                            return channel.setTags(["SimpleMessaging"])
+                    }
+                        .then{
+                            self.refreshData()
+                        }
+                    .catch(policy: .AllErrors, { (error) -> Void in
+                        NSLog("Error creating %@", error)
+                    })
+                    
+                }
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+                alert.dismissViewControllerAnimated(true) { () -> Void in
+                    
+                }
+            })
+            self.presentViewController(alert, animated: true) { () -> Void in
+                
+            }
+            
+        }else{
+            
+        }
     }
 }
 
@@ -124,7 +159,8 @@ extension ChannelsViewController : UICollectionViewDelegateFlowLayout{
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = (CGRectGetWidth(collectionView.bounds)-Constants.GridGutterWidth*3.0)/2.0
-        return CGSizeMake(width, width)
+        let height = CGFloat(2.0/sqrtf(3))*width
+        return CGSizeMake(width, height)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -139,7 +175,7 @@ extension ChannelsViewController : UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return channels.count
+        return channels.count+1
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -180,8 +216,13 @@ extension ChannelsViewController : UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let channel = channels[indexPath.row]
-        (cell as! ChannelCollectionViewCell).channel = channel
+        if indexPath.row == 0{
+            (cell as! ChannelCollectionViewCell).isAddCell = true
+        }else{
+            let channel = channels[indexPath.row-1]
+            (cell as! ChannelCollectionViewCell).isAddCell = false
+            (cell as! ChannelCollectionViewCell).channel = channel
+        }
     }
 }
 

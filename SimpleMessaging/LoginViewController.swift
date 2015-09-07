@@ -201,7 +201,7 @@ class LoginViewController: SMViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        //Have to put this hear to override UIAppearance
+        //Have to put this here to override UIAppearance
         headerLabel.font = Constants.HugeHeaderFont
     }
     
