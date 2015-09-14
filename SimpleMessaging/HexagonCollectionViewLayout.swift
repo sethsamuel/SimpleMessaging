@@ -21,13 +21,13 @@ class HexagonCollectionViewLayout: UICollectionViewLayout {
         let height = CGFloat(2.0/sqrtf(3))*width
         
         let row = floor(Double(indexPath.item)/5.0)
-        let xOffset = Constants.GridGutterWidth*2.0
+        let xOffset = Constants.GridGutterWidth
         let yOffset = row*(Double(height)*1.5+Double(Constants.GridGutterWidth)*2.0)+40
 
         if i < 3 {
-            attributes.frame = CGRectMake(CGFloat(xOffset) + CGFloat(i*Int(width)+(i-1)*Int(Constants.GridGutterWidth)), CGFloat(yOffset), width, height)
+            attributes.frame = CGRectMake(CGFloat(xOffset) + CGFloat(i*Int(width)+(i)*Int(Constants.GridGutterWidth)), CGFloat(yOffset), width, height)
         } else {
-            let xOffset2 = Double((i-3)*Int(width)+(i-4)*Int(Constants.GridGutterWidth))+Double(width)*0.5+Double(Constants.GridGutterWidth)/2.0
+            let xOffset2 = Double((i-3)*Int(width)+(i-3)*Int(Constants.GridGutterWidth))+Double(width)*0.5+Double(Constants.GridGutterWidth)/2.0
             attributes.frame = CGRectMake(CGFloat(xOffset) + CGFloat(xOffset2), CGFloat(yOffset+Double(height)*0.75+Double(Constants.GridGutterWidth)), width, height)
         }
         
