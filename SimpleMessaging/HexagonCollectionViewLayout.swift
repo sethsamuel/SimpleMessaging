@@ -16,13 +16,19 @@ class HexagonCollectionViewLayout: UICollectionViewLayout {
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
         let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
         let i = indexPath.item%5
+
+        let width = (CGRectGetWidth(self.collectionView!.bounds)-Constants.GridGutterWidth*4.0)/3.0
+        let height = CGFloat(2.0/sqrtf(3))*width
+        
         let row = floor(Double(indexPath.item)/5.0)
-        let yOffset = row*(60*1.5+8)
+        let xOffset = Constants.GridGutterWidth*2.0
+        let yOffset = row*(Double(height)*1.5+Double(Constants.GridGutterWidth)*2.0)+40
+
         if i < 3 {
-            attributes.frame = CGRectMake(CGFloat(i*60+(i-1)*4), CGFloat(yOffset), 60, 60)
+            attributes.frame = CGRectMake(CGFloat(xOffset) + CGFloat(i*Int(width)+(i-1)*Int(Constants.GridGutterWidth)), CGFloat(yOffset), width, height)
         } else {
-            let xOffset = Double((i-3)*60+(i-4)*4)+60*0.5+2
-            attributes.frame = CGRectMake(CGFloat(xOffset), CGFloat(yOffset+60*0.75+4), 60, 60)
+            let xOffset2 = Double((i-3)*Int(width)+(i-4)*Int(Constants.GridGutterWidth))+Double(width)*0.5+Double(Constants.GridGutterWidth)/2.0
+            attributes.frame = CGRectMake(CGFloat(xOffset) + CGFloat(xOffset2), CGFloat(yOffset+Double(height)*0.75+Double(Constants.GridGutterWidth)), width, height)
         }
         
         return attributes
