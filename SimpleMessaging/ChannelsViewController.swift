@@ -15,7 +15,7 @@ import FontAwesomeIconFactory
 
 class ChannelsViewController: SMViewController {
 
-    let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+    let collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: HexagonCollectionViewLayout())
     let refreshControl = UIRefreshControl()
     var channels : [MMXChannel] = [] {
         didSet {

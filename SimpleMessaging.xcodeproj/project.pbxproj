@@ -29,6 +29,8 @@
 		FA04D2F11B926DB40048339D /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA04D2EF1B926DB40048339D /* Configurations.plist */; };
 		FA04D2F71B935F160048339D /* SMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2F61B935F160048339D /* SMTextField.swift */; };
 		FA04D2F81B935FD40048339D /* SMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04D2F61B935F160048339D /* SMTextField.swift */; };
+		FA5779F61BA74964000E5A9E /* HexagonCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5779F51BA74964000E5A9E /* HexagonCollectionViewLayout.swift */; };
+		FA5779F71BA74964000E5A9E /* HexagonCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5779F51BA74964000E5A9E /* HexagonCollectionViewLayout.swift */; };
 		FA9504FE1B9B814900CC361F /* HexagonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9504FD1B9B814900CC361F /* HexagonCollectionViewCell.swift */; };
 		FA9504FF1B9B82F500CC361F /* HexagonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9504FD1B9B814900CC361F /* HexagonCollectionViewCell.swift */; };
 		FA9505011B9BAF8100CC361F /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9505001B9BAF8100CC361F /* ChannelCollectionViewCell.swift */; };
@@ -74,6 +76,7 @@
 		FA04D2EC1B9253370048339D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA04D2EF1B926DB40048339D /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
 		FA04D2F61B935F160048339D /* SMTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMTextField.swift; sourceTree = "<group>"; };
+		FA5779F51BA74964000E5A9E /* HexagonCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonCollectionViewLayout.swift; sourceTree = "<group>"; };
 		FA7509281B95628200BC5AAD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		FA9504FD1B9B814900CC361F /* HexagonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA9505001B9BAF8100CC361F /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 				FA04D2B71B9122F50048339D /* ChannelsViewController.swift */,
 				FA04D2E01B9234EB0048339D /* LoginViewController.swift */,
 				FA04D2E41B9235290048339D /* SMViewController.swift */,
+				FA5779F51BA74964000E5A9E /* HexagonCollectionViewLayout.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -423,6 +427,7 @@
 				FA9504FE1B9B814900CC361F /* HexagonCollectionViewCell.swift in Sources */,
 				FA9505011B9BAF8100CC361F /* ChannelCollectionViewCell.swift in Sources */,
 				FA9505041B9BB69200CC361F /* ChannelIconView.swift in Sources */,
+				FA5779F61BA74964000E5A9E /* HexagonCollectionViewLayout.swift in Sources */,
 				FA04D2B81B9122F50048339D /* ChannelsViewController.swift in Sources */,
 				FA04D2B61B9122F50048339D /* AppDelegate.swift in Sources */,
 				FA04D2E51B9235290048339D /* SMViewController.swift in Sources */,
@@ -442,6 +447,7 @@
 				FA9504FF1B9B82F500CC361F /* HexagonCollectionViewCell.swift in Sources */,
 				FA9505021B9BAF8100CC361F /* ChannelCollectionViewCell.swift in Sources */,
 				FA9505051B9BB69200CC361F /* ChannelIconView.swift in Sources */,
+				FA5779F71BA74964000E5A9E /* HexagonCollectionViewLayout.swift in Sources */,
 				FA04D2E21B9234F00048339D /* ChannelsViewController.swift in Sources */,
 				FA04D2E61B9235330048339D /* SMViewController.swift in Sources */,
 				FA04D2EB1B9236780048339D /* UIColor+SimpleMessaging.swift in Sources */,
