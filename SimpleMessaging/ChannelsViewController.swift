@@ -52,6 +52,11 @@ class ChannelsViewController: SMViewController {
 //        refreshControl.autoAlignAxisToSuperviewAxis(.Vertical)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -139,7 +144,31 @@ extension ChannelsViewController : UICollectionViewDelegate {
             }
             
         }else{
-            
+            if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? HexagonCollectionViewCell{
+                let shape = cell.shapeLayer
+                let originalPath = CGPathCreateCopy(shape.path)
+
+                let animation = CABasicAnimation(keyPath: "path")
+                animation.duration = 1.0
+                animation.fromValue = shape.path
+                let rectPath = UIBezierPath()
+                rectPath.moveToPoint(CGPointMake(CGRectGetWidth(cell.bounds)/2.0, 0))
+                rectPath.addLineToPoint(CGPointMake(CGRectGetWidth(cell.bounds), 0))
+//                rectPath.addLineToPoint(CGPointMake(CGRectGetWidth(cell.bounds), CGRectGetHeight(cell.bounds)/4.0))
+//                rectPath.addLineToPoint(CGPointMake(CGRectGetWidth(cell.bounds), CGRectGetHeight(cell.bounds)/4.0*3.0))
+                rectPath.addLineToPoint(CGPointMake(CGRectGetWidth(cell.bounds), CGRectGetHeight(cell.bounds)))
+                rectPath.addLineToPoint(CGPointMake(CGRectGetWidth(cell.bounds)/2.0, CGRectGetHeight(cell.bounds)))
+                rectPath.addLineToPoint(CGPointMake(0, CGRectGetHeight(cell.bounds)))
+//                rectPath.addLineToPoint(CGPointMake(0, CGRectGetHeight(cell.bounds)/4.0*3.0))
+//                rectPath.addLineToPoint(CGPointMake(0, CGRectGetHeight(cell.bounds)/4.0))
+                rectPath.addLineToPoint(CGPointMake(0, 0))
+                rectPath.closePath()
+                shape.path = rectPath.CGPath
+                animation.toValue = shape.path
+                shape.promiseAnimation(animation, forKey: animation.keyPath)
+                    .then{ _ -> Void in
+                }
+            }
         }
     }
 }
@@ -158,7 +187,7 @@ extension ChannelsViewController : UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width = (CGRectGetWidth(collectionView.bounds)-Constants.GridGutterWidth*3.0)/2.0
+        let width = (CGRectGetWidth(collectionView.bounds)-Constants.GridGutterWidth*4.0)/3.0
         let height = CGFloat(2.0/sqrtf(3))*width
         return CGSizeMake(width, height)
     }
@@ -166,7 +195,7 @@ extension ChannelsViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSizeMake(CGRectGetWidth(collectionView.bounds), 40)
     }
-    
+ 
 }
 
 extension ChannelsViewController : UICollectionViewDataSource {

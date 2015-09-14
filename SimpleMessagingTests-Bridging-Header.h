@@ -3,3 +3,4 @@
 //
 
 #import <CommonCrypto/CommonCrypto.h>
+#import <PromiseKit/CALayer+AnyPromise.h>

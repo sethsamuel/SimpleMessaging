@@ -24,7 +24,7 @@ class HexagonCollectionViewCell : UICollectionViewCell{
         self.backgroundColor = UIColor.clearColor()
 
         //Add cell background shap
-        shapeLayer.fillColor = UIColor(white: 1, alpha: 0.75).CGColor
+        shapeLayer.fillColor = UIColor(white: 1, alpha: 1).CGColor
         self.layer.addSublayer(shapeLayer)
     }
     

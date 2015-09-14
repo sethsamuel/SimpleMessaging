@@ -24,14 +24,14 @@ PODS:
     - MDMCoreData/MDMCoreDataCore
   - MDMCoreData/NSManagedObject+MDMCoreDataAdditions (1.5.0):
     - MDMCoreData/MDMCoreDataCore
-  - MMX (1.5.8):
+  - MMX (1.6.3):
     - CocoaAsyncSocket (= 7.4.1)
     - CocoaLumberjack (= 1.9.2)
     - Mantle (= 1.5.4)
     - MDMCoreData (= 1.5.0)
     - MMXXMPPFramework (= 3.6.11)
-  - MMX-PromiseKit (0.1.0):
-    - MMX (~> 1.5)
+  - MMX-PromiseKit (0.1.2):
+    - MMX (~> 1.6)
     - PromiseKit (~> 2)
   - MMXXMPPFramework (3.6.11):
     - MMXXMPPFramework/Core (= 3.6.11)
@@ -106,8 +106,8 @@ SPEC CHECKSUMS:
   FontAwesomeIconFactory: 0be1c4e100bb228ea59645d5b1f8a933b7ebe73a
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MDMCoreData: 402f754cda90865026a209243f1667824e775649
-  MMX: 2b9960ef1597950e8aa14cb530eace373fa1a41a
-  MMX-PromiseKit: 8dafdb39291c5c74401e8450786e21065ef68946
+  MMX: f7763a490f1c381f107a8ca573abab371d664914
+  MMX-PromiseKit: 18154e55249bb1c29ae8d65d3d47d4e70aec2b4b
   MMXXMPPFramework: ebb0f3515d686bd90f67d91ba47e361fecc16358
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
   PromiseKit: 9c92257e39abf4b634533d44268592dfc6e4b5c2
